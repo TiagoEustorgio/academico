@@ -8,7 +8,9 @@ export const index = () => {
     const {register, handleSubmit } = useForm()
 
     function salvar(dados){
-        console.log(dados)
+        const cursos = JSON.parse(window.localStorage.getItem('cursos')) || [ ]
+        cursos.push(dados)
+        window.localStorage.setItem('cursos', JSON.stringify(cursos))
     }
   return (
     <Pagina titulo="Formulário">
